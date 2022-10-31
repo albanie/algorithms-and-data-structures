@@ -196,6 +196,10 @@ def main():
     inorder(bst.root)
     print("")
 
+    # print out minimum and maximum
+    print(f"Minimum key: {minimum(bst.root).key}")
+    print(f"Maximum key: {maximum(bst.root).key}")
+
     """
     Print out:
 
@@ -208,6 +212,8 @@ def main():
     Deleting node Node(7) parent=5 right=8
     Inorder traversal after deletion
     1 2 3 5 8 9 12
+    Minimum key: 1
+    Maximum key: 12
     """
 
 
