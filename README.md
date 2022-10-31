@@ -9,14 +9,16 @@ It is a work-in-progress.
 ### Hash Tables
 
 - :movie_camera: [video lecture](https://www.youtube.com/watch?v=r1XZGP5ppqQ)
-- :page_facing_up: [slides](https://samuelalbanie.com/files/digest-slides/2022-09-brief-guide-to-hash-tables.pdf)
-- :hammer: hash_table.py (TODO)
+- :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2022-09-brief-guide-to-hash-tables.pdf)
+- :hammer: [hash_table.py] (TODO)
+- :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-09-brief-guide-to-hash-tables/)
 
 ### Binary Search Trees
 
-- :movie_camera: video lecture (TODO)
-- :page_facing_up: slides (TODO)
+- :movie_camera: [video lecture] (TODO)
+- :bar_chart: [slides (pdf)] (TODO)
 - :hammer: [binary_search_tree.py](binary_search_tree.py)
+- :fountain_pen: [detailed references] TODO
 
 ## Background concepts
 
