@@ -15,10 +15,10 @@ It is a work-in-progress.
 
 ### Binary Search Trees
 
-- :movie_camera: [video lecture] (TODO)
-- :bar_chart: [slides (pdf)] (TODO)
+- :movie_camera: [video lecture](https://youtu.be/0woI8l0ZWmA)
+- :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2022-10-brief-guide-to-binary-search-trees.pdf)
 - :hammer: [binary_search_tree.py](binary_search_tree.py)
-- :fountain_pen: [detailed references] TODO
+- :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-09-brief-guide-to-binary-search-trees/)
 
 ## Background concepts
 
