@@ -7,17 +7,6 @@
     d3.select('#svg').on('click', function () {
         draw('svg');
     });
-    // d3.select('#canvas').on('click', function () {
-    //     draw('canvas');
-    // });
-    // if (d3.resolution() > 1) {
-    //     d3.select('#paper').append('label').html(
-    //         "<input id='canvas-low' name='type' type='radio'><span>canvas low resolution</span>"
-    //     );
-    //     d3.select('#canvas-low').on('click', function () {
-    //         draw('canvas', 1);
-    //     });
-    // }
 
     var originalInsert = d3.binaryTree.prototype.insert;
 
