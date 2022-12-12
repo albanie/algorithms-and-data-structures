@@ -2,8 +2,10 @@
 
 The code draws inspiration from several descriptions of Binary Search Trees:
 - https://en.wikipedia.org/wiki/Binary_search_tree
-- T. H. Cormen, et al., "Introduction to algorithms", MIT press, (2022)
+- Chapter 12 of T. H. Cormen, et al., "Introduction to algorithms", MIT press, (2022)
 - https://github.com/donsheehy/datastructures
+
+We follow the Cormen et al. convention of allowing duplicate keys.
 
 If you would like a fully object-oriented Binary Search Tree implementation, I recommend:
 - https://github.com/donsheehy/datastructures
@@ -40,7 +42,7 @@ def insert(bst: BinarySearchTree, new_node: Node):
 
     Args:
         bst: the tree to insert into.
-        new_node:  the node to insert.
+        new_node: the node to insert.
     """
     node = bst.root
     parent = None
@@ -94,7 +96,7 @@ def delete(bst: BinarySearchTree, node: Node):
 
 
 def shift_nodes(bst: BinarySearchTree, old_node: Node, new_node: Node):
-    """Shift the nodes from the subtree at new_node to the position of old node.
+    """Shift the nodes from the subtree at new_node to the position of old_node.
 
     Args:
         bst: the tree to shift the nodes in.

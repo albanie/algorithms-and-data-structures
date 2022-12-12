@@ -18,6 +18,10 @@ This repo aims to provide minimalist implementations of data structures and algo
 - :hammer: [binary_search_tree.py](binary_search_tree.py)
 - :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-09-brief-guide-to-binary-search-trees/)
 
+### Red-Black Trees
+
+- :hammer: [red_black_tree.py](red_black_tree.py)
+
 ## Background concepts
 
 ### Big O notation (and its companions)
@@ -36,11 +40,11 @@ This repo aims to provide minimalist implementations of data structures and algo
 
 ### Further books
 
-Unlike the options above, the resources listed below are not free. However, they represent (in my opinion) high-quality learning materials.
+Unlike the options above, the resources listed below are not free. However, they represent (in my opinion) high-quality learning materials. If you have a local library, it's worth checking in case they have a copy.
 
 - :orange_book: [Introduction to Algorithms (4th Ed.)](https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/) by Thomas H. Cormen et al.
 - :orange_book: [The Art of Computer Programming](https://www-cs-faculty.stanford.edu/~knuth/taocp.html) by Donald E. Knuth
 
 ## Additional comments
 
-The repo is a work in progress.
+The repo is a work in progress. It likely contains errors. Pull requests are welcome.
