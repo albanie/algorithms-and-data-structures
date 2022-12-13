@@ -23,7 +23,10 @@ This repo aims to provide minimalist implementations of data structures and algo
 - :movie_camera: [video lecture](https://youtu.be/t-oiZnplv7g)
 - :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2022-12-brief-guide-to-red-black-trees.pdf)
 - :hammer: [red_black_tree.py](red_black_tree.py)
+- :hammer: [script.js (D3 visualisation)](visualisations/script.js)
 - :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-12-brief-guide-to-red-black-trees/)
+
+![red-black tree growth gif](visualisations/red-black-tree-growth.gif)
 
 ## Background concepts
 
