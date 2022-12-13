@@ -16,11 +16,14 @@ This repo aims to provide minimalist implementations of data structures and algo
 - :movie_camera: [video lecture](https://youtu.be/0woI8l0ZWmA)
 - :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2022-10-brief-guide-to-binary-search-trees.pdf)
 - :hammer: [binary_search_tree.py](binary_search_tree.py)
-- :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-09-brief-guide-to-binary-search-trees/)
+- :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-10-brief-guide-to-binary-search-trees/)
 
 ### Red-Black Trees
 
+- :movie_camera: [video lecture](https://youtu.be/t-oiZnplv7g)
+- :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2022-12-brief-guide-to-red-black-trees.pdf)
 - :hammer: [red_black_tree.py](red_black_tree.py)
+- :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-12-brief-guide-to-red-black-trees/)
 
 ## Background concepts
 
