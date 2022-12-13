@@ -1,8 +1,15 @@
 (function () {
 
     // Make things really fast
-    var step = 10 ;
-    var delay = 0.001;
+    // var step = 10 ;
+    // var delay = 0.001;
+
+    // Make things gentle
+    var step = 1 ;
+    var delay = 0.1;
+    var depthFontSize = '30px';
+    let blobRadius = 10 ;
+    let pointerColor= "white" ;
 
     d3.select('#svg').on('click', function () {
         draw('svg');
@@ -24,7 +31,7 @@
 
     var generator = d3.randomUniform(0, 1),
         tree = d3.binaryTree(),
-        radius = 5,
+        radius = blobRadius,
         node = {},
         maxDepth = 0,
         treeSize = 0,
@@ -85,10 +92,10 @@
 
         text = paper.append('g').append('text')
             .text('depth: 0')
-            .style('font-size', '20px')
+            .style('font-size', depthFontSize)
             .style('text-anchor', 'middle')
             .style('alignment-baseline', 'middle')
-            .attr("transform", "translate(50, 50)");
+            .attr("transform", "translate(60, 20)");
 
         paper.append('g').classed('links', true).style("stroke-width", "0.5px");
         paper.append('g').classed('tree', true);
@@ -99,7 +106,7 @@
                     .append('circle')
                     .attr("r", 1.5*radius)
                     .style("stroke", "black")
-                    .style("fill", "yellow");
+                    .style("fill", pointerColor);
 
         updateTree();
     }
