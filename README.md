@@ -28,13 +28,22 @@ This repo aims to provide minimalist implementations of data structures and algo
 
 ![red-black tree growth gif](visualisations/red-black-tree-growth.gif)
 
-## Background concepts
+## Related concepts
 
 ### Big O notation (and its companions)
 
 - :movie_camera: [video lecture](https://www.youtube.com/watch?v=nsIQyK4Gf48)
 - :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2022-10-big-o-notation-and-its-companions.pdf)
 - :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-10-big-o-notation-and-its-companions/)
+
+### Foundation models for code
+
+Until recently, code for implementing data structures was largely written by hand. As of 2021, there have been exploratory efforts to employ neural networks for the task of generating code from natural language descriptions (this approach underpins the GitHub Copilot tool, for example). If you'd like to learn more, the video below describes Codex, a popular foundation model for code generation.
+
+- :movie_camera: [YouTube video](https://www.youtube.com/watch?v=Wc7dcwF7QaA)
+- :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2022-07-codex.pdf)
+- :page_facing_up: [arxiv paper](https://arxiv.org/abs/2107.03374)
+- :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-07-codex/)
 
 ## Further resources
 
