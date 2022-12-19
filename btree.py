@@ -1,8 +1,10 @@
-"""A minimalist B-tree implementation.
+"""A (relatively) lightweight B-tree implementation.
 
 The code draws inspiration from several descriptions of Binary Search Trees:
-- Chapter 18 of T. H. Cormen, et al., "Introduction to algorithms", MIT press, (2022)
+- Chapter 18 of T. H. Cormen, et al., "Introduction to algorithms", MIT press (2022)
 - Chapter 7 of Elementary Algorithms by Liu Xinyu https://github.com/liuxinyu95/AlgoXY
+
+Note: the behaviour is not defined for duplicate keys.
 """
 
 import argparse
@@ -155,17 +157,19 @@ class Btree:
                 u.keys.pop(i)
                 self.write_block(u)
             else:
-                import ipdb; ipdb.set_trace()
                 raise KeyError(f"Key {key} not found in the tree")
             return
         # u is not a leaf
         if i < len(u.keys) and key == u.keys[i]:  # case 2
             if len(u.children[i].keys) >= self.t:  # case 2a
-                pred_key = self.predecessor(key, u.children[i])
+                # pred_key = self.predecessor(key, u.children[i])
+                pred_key = self.maximum(u.children[i])
                 self.delete(u.children[i], pred_key)
                 u.keys[i] = pred_key
             elif len(u.children[i+1].keys) >= self.t: # case 2b
-                succ_key = self.successor(key, u.children[i+1])
+                # succ_key = self.successor(key, u.children[i+1])
+                # succ_key = self.minimum(key, u.children[i+1])
+                succ_key = self.minimum(u.children[i+1])
                 self.delete(u.children[i+1], succ_key)
                 u.keys[i] = succ_key
             else:  # case 2c, both children have t-1 keys
@@ -232,33 +236,6 @@ class Btree:
             return i + 1
         raise ValueError("No sibling of u has at least t keys")
 
-
-    def predecessor(self, key, u: Node):
-        """Find the predecessor of key in the subtree rooted at u.
-        """
-        # linear scan to find position of key in current node
-        i = 0
-        while i < len(u.keys) and key > u.keys[i]:
-            i += 1
-        if u.is_leaf:
-            assert i > 0, "No valid predecessor could be find in this subtree"
-            return u.keys[i-1]
-        else:
-            return self.maximum(u.children[i])
-
-    def successor(self, key, u: Node):
-        """Find the successor of key in the subtree rooted at u.
-        """
-        # linear scan to find position of key in current node
-        i = 0
-        while i < len(u.keys) and key > u.keys[i]:
-            i += 1
-        if u.is_leaf:
-            assert i < len(u.keys), "No valid successor could be find in this subtree"
-            return u.keys[i]
-        else:
-            return self.minimum(u.children[i+1])
-        
     def merge_children(self, u: Node, i: int):
         """Merge the children of u at index i and i+1.
 
@@ -272,9 +249,6 @@ class Btree:
         if not u.children[i].is_leaf:
             u.children[i].children.extend(u.children[i+1].children)
         u.children.pop(i+1)
-
-
-
 
     def inorder(self, node: Node):
         """Perform an inorder traversal of the B-tree.
@@ -290,33 +264,6 @@ class Btree:
         # don't forget the last child (there are more children than keys)
         if not node.is_leaf:
             self.inorder(node.children[-1])
-
-    def inorder_with_depth(self, node: Node, depth: int, log=None):
-        """Perform an inorder traversal of the B-tree, printing nodes
-        at their current depth.
-
-        Args:
-            node: Node - the root of the tree to traverse.
-
-        Returns:
-            log: a list of tuples of the form (key, depth)
-        """
-
-        if log is None:
-            log = []
-
-        for i in range(len(node.keys)):
-            if not node.is_leaf:
-                log = self.inorder_with_depth(node.children[i], depth + 1, log=log)
-            log.append((node.keys[i], depth))
-
-        # don't forget the last child (there are more children than keys)
-        if not node.is_leaf:
-            log = self.inorder_with_depth(node.children[-1], depth + 1, log=log)
-
-        return log
-
-
 
     def preorder(self, node: Node):
         """Perform a preorder traversal of the B-tree.
@@ -404,6 +351,8 @@ def main():
 
     btree = Btree(t=2, root=Node(is_leaf=True))
     insert_keys = [5, 3, 2, 7, 1, 8, 9, 12, 13, 4, 0, 6, -1, 19, 24, 25, -2, -3, -4, -5]
+    print("Keys to be inserted:")
+    print(insert_keys)
     for key in insert_keys:
         btree.insert(key)
 
@@ -423,16 +372,10 @@ def main():
         dest_path.parent.mkdir(parents=True, exist_ok=True)
         btree.viz_btree(dest_path=dest_path, refresh=True)
 
-    # node_to_delete = node_list[3]
-    # keys_to_delete = [2, 5, 6, 7]
-    # keys_to_delete = [2, 5, 6, 7, 0, 1, 3, 4, 8, 9, 12, 13, 19, 24, 25, -1, -2, -3, -4]
-    keys_to_delete = [2, 5, 6, 7, 0, 1, 3, 4, 8]
+    keys_to_delete = [2, 5, 6, 7, 0, 1, 3, 4, 8, 9, 12, 13, 19, 24, 25]
+    print("Keys to be deleted:")
+    print(keys_to_delete)
     for key in keys_to_delete:
-
-        dest_path = Path(f"figs/btree-pre-deletion-of-{key}.png")
-        dest_path.parent.mkdir(parents=True, exist_ok=True)
-        btree.viz_btree(dest_path=dest_path, refresh=True)
-
         btree.delete(btree.root, key)
 
     if args.viz:
@@ -440,15 +383,29 @@ def main():
         dest_path.parent.mkdir(parents=True, exist_ok=True)
         btree.viz_btree(dest_path=dest_path, refresh=True)
 
-    # print out minimum and maximum
+    print(f"Print out minimum and maximum values")
     print(f"Minimum key: {btree.minimum(btree.root)}")
     print(f"Maximum key: {btree.maximum(btree.root)}")
 
     """
     Print out:
 
+    Keys to be inserted:
+    [5, 3, 2, 7, 1, 8, 9, 12, 13, 4, 0, 6, -1, 19, 24, 25, -2, -3, -4, -5]
+    Inorder traversal
+    -5 -4 -3 -2 -1 0 1 2 3 4 5 6 7 8 9 12 13 19 24 25 
+    Preorder traversal
+    1 7 -3 -1 -5 -4 -2 0 3 2 4 5 6 9 13 8 12 19 24 25 
+    Postorder traversal
+    -5 -4 -2 0 -3 -1 2 4 5 6 3 8 12 19 24 25 9 13 1 7 
+    Saving visualisation to figs/btree.png
+    Keys to be deleted:
+    [2, 5, 6, 7, 0, 1, 3, 4, 8, 9, 12, 13, 19, 24, 25]
+    Saving visualisation to figs/btree-after-deletions.png
+    Print out minimum and maximum values
+    Minimum key: -5
+    Maximum key: -1
     """
-
 
 if __name__ == "__main__":
     main()

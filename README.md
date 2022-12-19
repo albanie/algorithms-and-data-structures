@@ -26,7 +26,10 @@ This repo aims to provide minimalist implementations of data structures and algo
 - :hammer: [script.js (D3 visualisation)](visualisations/script.js)
 - :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-12-brief-guide-to-red-black-trees/)
 
-![red-black tree growth gif](visualisations/red-black-tree-growth.gif)
+
+### B-trees
+
+- :hammer: [btree.py](btree.py) ([visualisation of outputs](graphviz-walkthroughs/btree.md))
 
 ## Related concepts
 
@@ -47,19 +50,38 @@ Until recently, code for implementing data structures was largely written by han
 
 ## Further resources
 
-### Open source books/code
+### Books
+
+The books below represent (in my opinion) particularly high-quality learning reference/materials. If you have a local library, it's worth checking in case they have a copy.
+
+- :orange_book: [Introduction to Algorithms (4th Ed.)](https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/) by Thomas H. Cormen et al.  This book was the primary reference/inspiration used when developing the materials above.
+- :orange_book: [The Art of Computer Programming](https://www-cs-faculty.stanford.edu/~knuth/taocp.html) by Donald E. Knuth.
+
+### Further open-source books/code
 
 - :green_book: [algorithms.wtf](http://algorithms.wtf/) by Jeff Erickson
+- :green_book: + :hammer: [Elementary Algorithms](https://github.com/liuxinyu95/AlgoXY) by Liu Xinyu
 - :green_book: + :hammer: [A First Course on Data Structures in Python & the ds2 library](https://github.com/donsheehy/datastructures) by Don Sheehy
 - :green_book: + :hammer: [Problem Solving with Algorithms and Data Structures using Python (book & code)](https://runestone.academy/ns/books/published/pythonds/index.html) by Brad Miller and David Ranum
 
-### Further books
+### Visualisations
 
-Unlike the options above, the resources listed below are not free. However, they represent (in my opinion) high-quality learning materials. If you have a local library, it's worth checking in case they have a copy.
+#### Red-black trees
+![red-black tree growth gif](visualisations/red-black-tree-growth.gif)
 
-- :orange_book: [Introduction to Algorithms (4th Ed.)](https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/) by Thomas H. Cormen et al.
-- :orange_book: [The Art of Computer Programming](https://www-cs-faculty.stanford.edu/~knuth/taocp.html) by Donald E. Knuth
+#### B-trees
+![btree visualisation](figs/btree.png)
+
+
+## Requirements for install
+
+To visualise the trees, you'll need to have a copy of pygraphviz:
+
+```bash
+conda install -c anaconda graphviz
+pip install pygraphviz
+```
 
 ## Additional comments
 
-The repo is a work in progress. It likely contains errors. Pull requests are welcome.
+The repo is a work in progress. It aims to provide a reference for learning, not code for production (it has not been extensively tested to handle all edge cases). Pull requests are welcome.
