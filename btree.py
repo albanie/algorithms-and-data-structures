@@ -160,6 +160,9 @@ class Btree:
                 raise KeyError(f"Key {key} not found in the tree")
             return
         # u is not a leaf
+        self.read_block(u.children[i])
+        self.read_block(u.children[i+1])
+        self.write_block(u)
         if i < len(u.keys) and key == u.keys[i]:  # case 2
             if len(u.children[i].keys) >= self.t:  # case 2a
                 # pred_key = self.predecessor(key, u.children[i])
@@ -175,14 +178,16 @@ class Btree:
             else:  # case 2c, both children have t-1 keys
                 self.merge_children(u, i)
                 if u == self.root and not u.keys:
-                    # height of the tree 
+                    # height of the tree
                     self.root = u.children[0]
                 self.delete(u.children[i], key)
+            self.write_block(u)
         else: # case 3 (key not in u)
-            if len(u.children[i].keys) >= self.t:  
+            if len(u.children[i].keys) >= self.t:
                 self.delete(u.children[i], key)  # recurse
             elif self.has_sibling_with_at_least_t_keys(u, i): # case 3a
                 j = self.index_of_sibling_with_at_least_t_keys(u, i)
+                self.read_block(u.chlidren[j])
                 if j == i + 1:  # right sibling has at least t keys
                     u.children[i].keys.append(u.keys[i])
                     u.keys[i] = u.children[j].keys.pop(0)
@@ -193,6 +198,8 @@ class Btree:
                     u.keys[j] = u.children[j].keys.pop()
                     if not u.children[j].is_leaf:
                         u.children[i].children.insert(0, u.children[j].children.pop())
+                self.write_block(u.chlidren[i])
+                self.write_block(u.chlidren[j])
                 self.delete(u.children[i], key)
             else: # u is not a leaf and both siblings have t-1 keys
                 if i > 0:  # we merge with left sibling
@@ -243,12 +250,16 @@ class Btree:
             u: the parent node.
             i: the index of the first child to merge.
         """
+        self.read_block(u.chlidren[i])
+        self.read_block(u.chlidren[i+1])
         median_key = u.keys.pop(i)
         u.children[i].keys.append(median_key)
         u.children[i].keys.extend(u.children[i+1].keys)
         if not u.children[i].is_leaf:
             u.children[i].children.extend(u.children[i+1].children)
         u.children.pop(i+1)
+        self.write_block(u.chlidren[i])
+        self.write_block(u)
 
     def inorder(self, node: Node):
         """Perform an inorder traversal of the B-tree.

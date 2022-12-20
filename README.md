@@ -29,7 +29,10 @@ This repo aims to provide minimalist implementations of data structures and algo
 
 ### B-trees
 
+- :movie_camera: [video lecture](https://youtu.be/7MqaHGWRS3E)
+- :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2022-12-brief-guide-to-b-trees.pdf)
 - :hammer: [btree.py](btree.py) ([visualisation of outputs](graphviz-walkthroughs/btree.md))
+- :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2022-12-brief-guide-to-b-trees)
 
 ## Related concepts
 
