@@ -70,6 +70,7 @@ def build_max_heap(A):
 
 
 def heapsort(A):
+    """An in-place implementation of heapsort."""
     build_max_heap(A)
     heap_size = len(A)
     while heap_size > 1:
@@ -78,12 +79,27 @@ def heapsort(A):
         max_heapify(A, heap_size, 0)
 
 
+def naive_heapsort(A):
+    """A naive implementation of heapsort that requires additional memory"""
+    build_max_heap(A)
+    heap_size = len(A)
+    sorted_A = [None for _ in range(len(A))]
+    while heap_size > 0:
+        sorted_A[heap_size - 1] = A[0]
+        A[0], A[heap_size - 1] = A[heap_size - 1], A[0]
+        heap_size = heap_size - 1
+        max_heapify(A, heap_size, 0)
+    return sorted_A
+
+
 def main():
     # pylint: disable=line-too-long
     # flake8: noqa: E501
 
-    A = [3, 2, 1, 8, 9, 12, 4, 5, 6, 7, 10, 11]
+    sample_list = [3, 2, 1, 8, 9, 12, 4, 5, 6, 7, 10, 11]
 
+    # use a copy to demonstrate the effect of heapsort
+    A = sample_list[:]
     print("Array to be sorted:")
     print(A)
 
@@ -91,12 +107,23 @@ def main():
     print("Sorted array:")
     print(A)
 
+    # use another copy to demonstrate the effect of naive_heapsort
+    B = sample_list[:]
+    print("Array to be sorted:")
+    print(B)
+
+    print("Sorted array with naive heapsort:")
+    print(naive_heapsort(B))
     """
     Print out >>>
 
     Array to be sorted:
     [3, 2, 1, 8, 9, 12, 4, 5, 6, 7, 10, 11]
     Sorted array:
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    Array to be sorted:
+    [3, 2, 1, 8, 9, 12, 4, 5, 6, 7, 10, 11]
+    Sorted array with naive heapsort:
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     """
 
