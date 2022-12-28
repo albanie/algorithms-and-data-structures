@@ -65,7 +65,7 @@ def max_heapify(A: list, heap_size: int, i: int):
 
 def build_max_heap(A):
     heap_size = len(A)
-    for i in range(heap_size // 2, -1, -1):
+    for i in range(heap_size // 2 - 1, -1, -1):
         max_heapify(A, heap_size, i)
 
 
@@ -84,11 +84,12 @@ def naive_heapsort(A):
     build_max_heap(A)
     heap_size = len(A)
     sorted_A = [None for _ in range(len(A))]
-    while heap_size > 0:
+    while heap_size > 1:
         sorted_A[heap_size - 1] = A[0]
         A[0], A[heap_size - 1] = A[heap_size - 1], A[0]
         heap_size = heap_size - 1
         max_heapify(A, heap_size, 0)
+    sorted_A[0] = A[0]
     return sorted_A
 
 

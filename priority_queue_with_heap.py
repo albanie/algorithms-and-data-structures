@@ -65,7 +65,7 @@ def max_heapify(A: list, heap_size: int, i: int):
 
 def build_max_heap(A):
     heap_size = len(A)
-    for i in range(heap_size // 2, -1, -1):
+    for i in range(heap_size // 2 - 1, -1, -1):
         max_heapify(A, heap_size, i)
 
 
