@@ -50,7 +50,7 @@ def parent(i: int) -> int:
     return (i - 1) // 2
 
 
-def max_heapify(A: list, i: int, heap_size: int):
+def max_heapify(A: list, heap_size: int, i: int):
     left = left_child(i)
     right = right_child(i)
     max_i = i
@@ -60,13 +60,13 @@ def max_heapify(A: list, i: int, heap_size: int):
         max_i = right
     if max_i != i:
         A[i], A[max_i] = A[max_i], A[i]
-        max_heapify(A, max_i, heap_size=heap_size)
+        max_heapify(A, heap_size, max_i)
 
 
 def build_max_heap(A):
     heap_size = len(A)
     for i in range(heap_size // 2, -1, -1):
-        max_heapify(A, i, heap_size=heap_size)
+        max_heapify(A, heap_size, i)
 
 
 class MaxPriorityQueue:
@@ -92,7 +92,7 @@ class MaxPriorityQueue:
         max_value = self.get_maximum()
         self.A[0] = self.A[self.heap_size - 1]
         self.heap_size -= 1
-        max_heapify(self.A, 0, heap_size=self.heap_size)
+        max_heapify(self.A, self.heap_size, 0)
         return max_value
 
     def increase_key(self, key, value):
