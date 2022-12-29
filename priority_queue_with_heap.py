@@ -12,6 +12,10 @@ The code draws inspiration from descriptions of Priority Queues and Binary Heaps
 
 Note: this implementation assumes all keys are unique.
 
+If you would like to read a "production quality" version of a priority queue you
+may find the cpython implementation interesting:
+https://github.com/python/cpython/blob/3.11/Lib/heapq.py
+
 """
 
 def left_child(i: int) -> int:
@@ -106,6 +110,8 @@ class MaxPriorityQueue:
         i = 0
         while i < self.heap_size and self.A[i]["value"] != value:
             i += 1
+        assert key >= self.A[i]["key"], f"requested to decrease key to {key}"
+        assert key >= self.A[i]["key"], f"requested to decrease key {self.A[i]['key']} to {key}"
         self.A[i]["key"] = key # increase the key
         while i > 0 and self.A[i]["key"] > self.A[parent(i)]["key"]:
             self.A[i], self.A[parent(i)] = self.A[parent(i)], self.A[i]
@@ -121,7 +127,8 @@ class MaxPriorityQueue:
         if self.heap_size == len(self.A):
             # expand underlying array to avoid heap overflow
             self.A.append(None)
-        initial_key = self.A[self.heap_size - 1]["key"] - 1 # use key smaller than any other
+        # use key that is guaranteed to be valid
+        initial_key = float("-inf")
         self.A[self.heap_size] = {"key": initial_key, "value": value}
         self.heap_size += 1
         self.increase_key(key, value)
@@ -136,7 +143,7 @@ def main():
     # flake8: noqa: E501
 
     inital_queue = [
-        {"key": 0, "value": "red"},
+        # {"key": 0, "value": "red"},
     ]
     max_priority_queue = MaxPriorityQueue(A=inital_queue)
     print("Initial priority queue:")
