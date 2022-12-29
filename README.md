@@ -33,9 +33,12 @@ This repo aims to provide minimalist implementations of data structures and algo
 - :hammer: [btree.py](btree.py) ([visualisation of outputs](graphviz-walkthroughs/btree.md))
 - :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2022-12-brief-guide-to-b-trees)
 
-## Sorting
+## Heapsort and Binary Heaps
 
+- :movie_camera: [video lecture](https://youtu.be/ryRfapIQHW0)
+- :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2022-12-brief-guide-to-heapsort-and-binary-heaps.pdf)
 - :hammer: [heapsort.py](heapsort.py) (related topic: [priority_queue_with_heap.py](priority_queue_with_heap.py))
+- :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2022-12-brief-guide-to-heapsort-and-binary-heaps)
 
 
 ## Related concepts
