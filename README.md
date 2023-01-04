@@ -40,6 +40,9 @@ This repo aims to provide minimalist implementations of data structures and algo
 - :hammer: [heapsort.py](heapsort.py) (related topic: [priority_queue_with_heap.py](priority_queue_with_heap.py))
 - :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2022-12-brief-guide-to-heapsort-and-binary-heaps)
 
+## Quicksort
+
+- :hammer: [quicksort.py](quicksort.py)
 
 ## Related concepts
 
