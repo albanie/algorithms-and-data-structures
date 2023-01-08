@@ -42,7 +42,10 @@ This repo aims to provide minimalist implementations of data structures and algo
 
 ## Quicksort
 
+- :movie_camera: [video lecture](https://youtu.be/kbiKn1K08RM)
+- :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2023-01-brief-guide-to-quicksort.pdf)
 - :hammer: [quicksort.py](quicksort.py)
+- :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2023-01-brief-guide-to-quicksort)
 
 ## Related concepts
 
