@@ -23,13 +23,14 @@ def lomuto_partition(A: list, low: int, high: int) -> int:
     Returns:
         The index of the pivot after partitioning.
     """
-    pivot_val = A[high]
+    pivot = high
+    pivot_val = A[pivot]
     i = low
     for j in range(low, high):
         if A[j] <= pivot_val:
             A[i], A[j] = A[j], A[i]
             i += 1
-    A[i], A[high] = A[high], A[i]
+    A[i], A[pivot] = A[pivot], A[i]
     return i
 
 
@@ -120,6 +121,16 @@ def main():
     quicksort_with_hoare_partition(B)
     print("Array sorted with quicksort (hoare partition):")
     print(B)
+    """
+    Print out >>>
+
+    Array to be sorted:
+    [5, 2, 3, 1, 0]
+    Array sorted with quicksort (lomuto partition):
+    [0, 1, 2, 3, 5]
+    Array sorted with quicksort (hoare partition):
+    [0, 1, 2, 3, 5]
+    """
 
 if __name__ == "__main__":
     main()
