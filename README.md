@@ -4,6 +4,12 @@ This repo aims to provide minimalist implementations of data structures and algo
 
 ## Data structures, algorithms and concepts
 
+### Big O notation (and $\Theta$, $\Omega$, $o$, $\omega$ too)
+
+- :movie_camera: [video lecture](https://www.youtube.com/watch?v=nsIQyK4Gf48)
+- :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2022-10-big-o-notation-and-its-companions.pdf)
+- :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-10-big-o-notation-and-its-companions/)
+
 ### Binary Search Trees
 
 - :movie_camera: [video lecture](https://youtu.be/0woI8l0ZWmA)
@@ -33,7 +39,6 @@ This repo aims to provide minimalist implementations of data structures and algo
 - :hammer: [hash_table.py](hash_table.py)
 - :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-09-brief-guide-to-hash-tables/)
 
-
 ### Heapsort and Binary Heaps
 
 - :movie_camera: [video lecture](https://youtu.be/ryRfapIQHW0)
@@ -48,17 +53,15 @@ This repo aims to provide minimalist implementations of data structures and algo
 - :hammer: [quicksort.py](quicksort.py)
 - :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2023-01-brief-guide-to-quicksort)
 
-### Big O notation (and $\Theta$, $\Omega$, $o$, $\omega$ notation too)
-
-- :movie_camera: [video lecture](https://www.youtube.com/watch?v=nsIQyK4Gf48)
-- :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2022-10-big-o-notation-and-its-companions.pdf)
-- :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-10-big-o-notation-and-its-companions/)
-
 ### Lower Bounds for Comparison Sorts
 
 - :movie_camera: [video lecture](https://youtu.be/JWSiXs9aB5U)
 - :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2023-01-2023-01-brief-guide-to-comparison-sorting-lower-bounds.pdf)
 - :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2023-01-brief-guide-to-comparison-sorting-lower-bounds)
+
+### Counting Sort
+
+- :hammer: [counting_sort.py](counting_sort.py)
 
 ### Foundation models for code
 

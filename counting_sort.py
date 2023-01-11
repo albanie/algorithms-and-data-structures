@@ -1,6 +1,7 @@
 """A simple implementation of the counting sort algorithm.
 
-Counting sort was originally described by H. Seward in 1959 in his Master's thesis.
+Counting sort was originally described by H. Seward in 1959 in his Master's thesis under
+the name "Floating Digital Sort".
 
 Reference:
 - H. Seward, "Information sorting in the application of electronic digital computers to
@@ -13,15 +14,26 @@ This code is based on the description of the algorithm in the following sources:
 
 
 def counting_sort(A, k):
+    """Sort the given array with the counting sort algorithm.
+
+    Args:
+        A: the array to be sorted.
+        k: the number of possible values for the keys.
+
+    Returns:
+        The sorted array.
+
+    NOTE: Counting sort assumes that all inputs are integers between 0 and k-1 inclusive.
+    """
     n = len(A)
     counts = [0 for _ in range(k)]
     output = [None for _ in range(n)]
     for key in A:
         counts[key] += 1
     for i in range(1, k):
-        counts[i] += counts[i-1]
+        counts[i] += counts[i - 1]
     for key in reversed(A):
-        output[counts[key]-1] = key
+        output[counts[key] - 1] = key
         counts[key] = counts[key] - 1
     return output
 
