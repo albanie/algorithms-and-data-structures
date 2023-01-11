@@ -89,7 +89,7 @@ Until recently, code for implementing data structures was largely written by han
 
 The books below represent (in my opinion) high-quality learning/reference materials. 
 
-- :orange_book: [Introduction to Algorithms (a.k.a "CLRS")](https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/) by Thomas H. Cormen et al.  This book was the primary reference/inspiration used when developing the materials above. If you have a local library, it's worth checking in case they have a copy.
+- :orange_book: [Introduction to Algorithms (a.k.a "CLRS")](https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/) by Thomas H. Cormen et al.  - this was the primary reference used when developing the materials above. If you have a local library, it's worth checking in case they have a copy.
 - :green_book: [algorithms.wtf](http://algorithms.wtf/) by Jeff Erickson (open-source)
 - :green_book: + :hammer: [Elementary Algorithms](https://github.com/liuxinyu95/AlgoXY) by Liu Xinyu (open-source)
 - :orange_book: [The Art of Computer Programming](https://www-cs-faculty.stanford.edu/~knuth/taocp.html) by Donald E. Knuth. This is a series of books rather than a single book. The content is engaging, humorous and extraordinarily comprehensive. It is perhaps most useful as a reference for deep dives on topics, rather than an introductory learning resource (simply because the level of detail is so high).
