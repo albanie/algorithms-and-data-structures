@@ -2,14 +2,7 @@
 
 This repo aims to provide minimalist implementations of data structures and algorithms in Python. The bare necessities. Each data structure is accompanied by a video lecture (and pdf slides).
 
-## Data structures
-
-### Hash Tables
-
-- :movie_camera: [video lecture](https://www.youtube.com/watch?v=r1XZGP5ppqQ)
-- :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2022-09-brief-guide-to-hash-tables.pdf)
-- :hammer: [hash_table.py](hash_table.py)
-- :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-09-brief-guide-to-hash-tables/)
+## Data structures, algorithms and concepts
 
 ### Binary Search Trees
 
@@ -33,6 +26,14 @@ This repo aims to provide minimalist implementations of data structures and algo
 - :hammer: [btree.py](btree.py) ([visualisation of outputs](graphviz-walkthroughs/btree.md))
 - :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2022-12-brief-guide-to-b-trees)
 
+### Hash Tables
+
+- :movie_camera: [video lecture](https://www.youtube.com/watch?v=r1XZGP5ppqQ)
+- :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2022-09-brief-guide-to-hash-tables.pdf)
+- :hammer: [hash_table.py](hash_table.py)
+- :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-09-brief-guide-to-hash-tables/)
+
+
 ### Heapsort and Binary Heaps
 
 - :movie_camera: [video lecture](https://youtu.be/ryRfapIQHW0)
@@ -46,8 +47,6 @@ This repo aims to provide minimalist implementations of data structures and algo
 - :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2023-01-brief-guide-to-quicksort.pdf)
 - :hammer: [quicksort.py](quicksort.py)
 - :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2023-01-brief-guide-to-quicksort)
-
-## Useful Concepts
 
 ### Big O notation (and $\Theta$, $\Omega$, $o$, $\omega$ notation too)
 
@@ -74,17 +73,12 @@ Until recently, code for implementing data structures was largely written by han
 
 ### Books
 
-The books below represent (in my opinion) particularly high-quality learning reference/materials. If you have a local library, it's worth checking in case they have a copy.
+The books below represent (in my opinion) particularly high-quality learning reference/materials. 
 
-- :orange_book: [Introduction to Algorithms (4th Ed.)](https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/) by Thomas H. Cormen et al.  This book was the primary reference/inspiration used when developing the materials above.
+- :orange_book: [Introduction to Algorithms (4th Ed.)](https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/) by Thomas H. Cormen et al.  This book was the primary reference/inspiration used when developing the materials above. If you have a local library, it's worth checking in case they have a copy.
 - :orange_book: [The Art of Computer Programming](https://www-cs-faculty.stanford.edu/~knuth/taocp.html) by Donald E. Knuth.
-
-### Further open-source books/code
-
-- :green_book: [algorithms.wtf](http://algorithms.wtf/) by Jeff Erickson
-- :green_book: + :hammer: [Elementary Algorithms](https://github.com/liuxinyu95/AlgoXY) by Liu Xinyu
-- :green_book: + :hammer: [A First Course on Data Structures in Python & the ds2 library](https://github.com/donsheehy/datastructures) by Don Sheehy
-- :green_book: + :hammer: [Problem Solving with Algorithms and Data Structures using Python (book & code)](https://runestone.academy/ns/books/published/pythonds/index.html) by Brad Miller and David Ranum
+- :green_book: [algorithms.wtf](http://algorithms.wtf/) by Jeff Erickson (open-source)
+- :green_book: + :hammer: [Elementary Algorithms](https://github.com/liuxinyu95/AlgoXY) by Liu Xinyu (open-source)
 
 ### Visualisations
 
