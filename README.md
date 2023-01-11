@@ -33,27 +33,33 @@ This repo aims to provide minimalist implementations of data structures and algo
 - :hammer: [btree.py](btree.py) ([visualisation of outputs](graphviz-walkthroughs/btree.md))
 - :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2022-12-brief-guide-to-b-trees)
 
-## Heapsort and Binary Heaps
+### Heapsort and Binary Heaps
 
 - :movie_camera: [video lecture](https://youtu.be/ryRfapIQHW0)
 - :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2022-12-brief-guide-to-heapsort-and-binary-heaps.pdf)
 - :hammer: [heapsort.py](heapsort.py) (related topic: [priority_queue_with_heap.py](priority_queue_with_heap.py))
 - :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2022-12-brief-guide-to-heapsort-and-binary-heaps)
 
-## Quicksort
+### Quicksort
 
 - :movie_camera: [video lecture](https://youtu.be/kbiKn1K08RM)
 - :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2023-01-brief-guide-to-quicksort.pdf)
 - :hammer: [quicksort.py](quicksort.py)
 - :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2023-01-brief-guide-to-quicksort)
 
-## Related concepts
+## Useful Concepts
 
-### Big O notation (and its companions)
+### Big O notation (and $\Theta$, $\Omega$, $o$, $\omega$ notation too)
 
 - :movie_camera: [video lecture](https://www.youtube.com/watch?v=nsIQyK4Gf48)
 - :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2022-10-big-o-notation-and-its-companions.pdf)
 - :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-10-big-o-notation-and-its-companions/)
+
+### Lower Bounds for Comparison Sorts
+
+- :movie_camera: [video lecture](https://youtu.be/JWSiXs9aB5U)
+- :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2023-01-2023-01-brief-guide-to-comparison-sorting-lower-bounds.pdf)
+- :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2023-01-brief-guide-to-comparison-sorting-lower-bounds)
 
 ### Foundation models for code
 
