@@ -69,6 +69,20 @@ Until recently, code for implementing data structures was largely written by han
 - :page_facing_up: [arxiv paper](https://arxiv.org/abs/2107.03374)
 - :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-07-codex/)
 
+## Further background
+
+### Row-major order vs column-major order
+
+- :movie_camera: [video lecture](https://youtu.be/b5lYGvcBjy4)
+- :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2022-09-row-major-vs-column-major.pdf)
+- :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-09-row-major-vs-column-major/)
+
+### Why numbering should start at zero (according to Dijkstra)
+
+- :movie_camera: [video lecture](https://youtu.be/saZnPDPyQHA)
+- :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2022-09-why-numbering-should-start-at-zero-dijkstra.pdf)
+- :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-09-why-numbering-should-start-at-zero-dijkstra/)
+
 ## Further resources
 
 ### Books
