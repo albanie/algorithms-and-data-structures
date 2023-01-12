@@ -61,7 +61,10 @@ This repo aims to provide minimalist implementations of data structures and algo
 
 ### Counting Sort
 
+- :movie_camera: [video lecture](https://youtu.be/0aMcZpAySjw)
+- :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2023-01-brief-guide-to-counting-sort.pdf)
 - :hammer: [counting_sort.py](counting_sort.py)
+- :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2023-01-brief-guide-to-counting-sort)
 
 ### Foundation models for code
 
