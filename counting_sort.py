@@ -39,9 +39,9 @@ def counting_sort(A, k):
 
 
 def main():
-    A = [5, 2, 3, 1, 0, 2, 2, 4]
+    A = [3, 1, 4, 0, 0, 3]
     # the number of possible keys (which range from 0 to k - 1)
-    k = 6
+    k = 5
     print("Array to be sorted:")
     print(A)
     B = counting_sort(A, k=k)
@@ -52,9 +52,9 @@ def main():
     Print out >>>
 
     Array to be sorted:
-    [5, 2, 3, 1, 0, 2, 2, 4]
+    [3, 1, 4, 0, 0, 3]
     Array sorted with counting sort:
-    [0, 1, 2, 2, 2, 3, 4, 5]
+    [0, 0, 1, 3, 3, 4]
     """
 
 
