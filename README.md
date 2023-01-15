@@ -1,6 +1,7 @@
 # Introduction to data structures and algorithms
 
-This repo aims to provide minimalist implementations of data structures and algorithms in Python. The bare necessities. Each data structure is accompanied by a video lecture (and pdf slides).
+This repo aims to provide minimalist implementations of data structures and algorithms in Python to accompany a [lecture course on this topic](https://www.youtube.com/playlist?list=PL9t0xVFP90GBPScODccB2_PpouUUZ4j8C).
+The bare necessities. Each data structure is accompanied by a video lecture (and pdf slides).
 
 ## Data structures, algorithms and concepts
 
@@ -65,6 +66,10 @@ This repo aims to provide minimalist implementations of data structures and algo
 - :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2023-01-brief-guide-to-counting-sort.pdf)
 - :hammer: [counting_sort.py](counting_sort.py)
 - :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2023-01-brief-guide-to-counting-sort)
+
+### Radix Sort
+
+- :hammer: [radix_sort.py](radix_sort.py)
 
 ### Foundation models for code
 
