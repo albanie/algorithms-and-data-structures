@@ -74,6 +74,10 @@ The bare necessities. Each data structure is accompanied by a video lecture (and
 - :hammer: [radix_sort.py](radix_sort.py)
 - :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2023-01-brief-guide-to-radix-sort)
 
+### Bucket Sort
+
+- :hammer: [bucket_sort.py](bucket_sort.py)
+
 ### Foundation models for code
 
 Until recently, code for implementing data structures was largely written by hand. As of 2021, there have been exploratory efforts to employ neural networks for the task of generating code from natural language descriptions (this approach underpins the GitHub Copilot tool, for example). If you'd like to learn more, the video below describes Codex, a popular foundation model for code generation.
