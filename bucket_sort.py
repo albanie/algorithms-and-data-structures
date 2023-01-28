@@ -49,7 +49,7 @@ def insertion_sort(A: list):
 
 
 def main():
-    A = [0.21, 0.4, 0.18, 0.8, 0.13]
+    A = [0.15, 0.4, 0.18, 0.8, 0.13]
     # the number of digits in each key
     print("Array to be sorted:")
     print(A)
@@ -61,9 +61,9 @@ def main():
     Print out >>>
 
     Array to be sorted:
-    [0.21, 0.4, 0.18, 0.8, 0.13]
+    [0.15, 0.4, 0.18, 0.8, 0.13]
     Array sorted with bucket sort:
-    [0.13, 0.18, 0.21, 0.4, 0.8]
+    [0.13, 0.15, 0.18, 0.4, 0.8]
     """
 
 

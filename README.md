@@ -76,7 +76,10 @@ The bare necessities. Each data structure is accompanied by a video lecture (and
 
 ### Bucket Sort
 
+- :movie_camera: [video lecture](https://youtu.be/mz2fBJyoEVc)
+- :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2023-01-brief-guide-to-bucket-sort.pdf)
 - :hammer: [bucket_sort.py](bucket_sort.py)
+- :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2023-01-brief-guide-to-bucket-sort)
 
 ### Foundation models for code
 
