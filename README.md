@@ -81,6 +81,10 @@ The bare necessities. Each data structure is accompanied by a video lecture (and
 - :hammer: [bucket_sort.py](bucket_sort.py)
 - :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2023-01-brief-guide-to-bucket-sort)
 
+### Parallel algorithms
+
+- :hammer: [parallel_fibonacci.py](parallel_fibonacci.py)
+
 ### Foundation models for code
 
 Until recently, code for implementing data structures was largely written by hand. As of 2021, there have been exploratory efforts to employ neural networks for the task of generating code from natural language descriptions (this approach underpins the GitHub Copilot tool, for example). If you'd like to learn more, the video below describes Codex, a popular foundation model for code generation.
@@ -117,22 +121,34 @@ The books below represent (in my opinion) high-quality learning/reference materi
 
 ### Visualisations
 
-#### Red-black trees
+#### Red-black trees visualisation
+
 ![red-black tree growth gif](visualisations/red-black-tree-growth.gif)
 
-#### B-trees
-![btree visualisation](figs/btree.png)
+#### B-trees visualisation
 
+![btree visualisation](figs/btree.png)
 
 ## Requirements for install
 
-To visualise the trees, you'll need to have a copy of pygraphviz:
+To visualise the b-trees as done above, you'll need to have a copy of pygraphviz:
 
 ```bash
 conda install -c anaconda graphviz
 pip install pygraphviz
 ```
 
+If you'd like to run the parallel code without the GIL, you need Sam Gross' [nogil](https://nogil.dev) version of Python. This is not strictly necessary to run the code, but without it the parallel code with be slower than the serial code.
+
+```bash
+# first, install pyenv. Then:
+pyenv install nogil-3.9.10
+# activate the nogil
+pyenv local nogil-3.9.10
+```
+
 ## Additional comments
 
-The repo is a work in progress. It aims to provide a reference for learning, not code for production (it has not been extensively tested to handle all edge cases). Pull requests are welcome.
+The repo is a work in progress. It aims to provide a reference for learning, not code for production (it has not been extensively tested to handle all edge cases).
+
+Pull requests are welcome.
