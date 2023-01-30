@@ -1,0 +1,5 @@
+.dccache
+.DS_Store
+*.pyc
+.python-version
+scratch
