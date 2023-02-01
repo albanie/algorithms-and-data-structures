@@ -5,12 +5,6 @@ The bare necessities. Each data structure is accompanied by a video lecture (and
 
 ## Data structures, algorithms and concepts
 
-### Big O notation (and $\Theta$, $\Omega$, $o$, $\omega$ too)
-
-- :movie_camera: [video lecture](https://www.youtube.com/watch?v=nsIQyK4Gf48)
-- :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2022-10-big-o-notation-and-its-companions.pdf)
-- :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-10-big-o-notation-and-its-companions/)
-
 ### Binary Search Trees
 
 - :movie_camera: [video lecture](https://youtu.be/0woI8l0ZWmA)
@@ -95,6 +89,13 @@ Until recently, code for implementing data structures was largely written by han
 - :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-07-codex/)
 
 ## Further background
+
+### Big O notation (and $\Theta$, $\Omega$, $o$, $\omega$ too)
+
+- :movie_camera: [video lecture](https://www.youtube.com/watch?v=nsIQyK4Gf48)
+- :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2022-10-big-o-notation-and-its-companions.pdf)
+- :fountain_pen: [detailed references](https://samuelalbanie.com/digests/2022-10-big-o-notation-and-its-companions/)
+
 
 ### Row-major order vs column-major order
 
