@@ -15,8 +15,10 @@ Note: this implementation assumes all keys are unique.
 If you would like to read a "production quality" version of a priority queue you
 may find the cpython implementation interesting:
 https://github.com/python/cpython/blob/3.11/Lib/heapq.py
-
 """
+
+from red_black_tree import RedBlackTree
+
 
 def left_child(i: int) -> int:
     """Compute the index of the left child of node i.
@@ -79,6 +81,10 @@ class MaxPriorityQueue:
         self.A = A
         self.heap_size = len(A)
 
+        # we use a red-black tree to map values to indices in the underlying array
+        # so that we can call increase_key in O(log n) time
+        self.value2index = RedBlackTree()
+
     def get_maximum(self):
         """Return the maximum value in the priority queue.
 
@@ -93,11 +99,18 @@ class MaxPriorityQueue:
         Returns:
             The maximum value in the priority queue.
         """
-        max_value = self.get_maximum()
-        self.A[0] = self.A[self.heap_size - 1]
+        max_item = self.A[0]
+        last_item = self.A[self.heap_size - 1]
+        self.A[0] = last_item
+
+        # update the value2index mapping (note that the value in the RBT is the index in 
+        # the underlying array for the heap)
+        self.value2index[last_item["value"]] = 0
+        del self.value2index[max_item["value"]]
+
         self.heap_size -= 1
         max_heapify(self.A, self.heap_size, 0)
-        return max_value
+        return max_item["value"]
 
     def increase_key(self, key, value):
         """Increase the key of the value in the priority queue.
@@ -106,11 +119,9 @@ class MaxPriorityQueue:
             key: the new key of the value
             value: the value to increase the key of
         """
-        # locate the position of `value` in the underlying array
-        i = 0
-        while i < self.heap_size and self.A[i]["value"] != value:
-            i += 1
-        assert key >= self.A[i]["key"], f"requested to decrease key to {key}"
+        # locate the position of `value` in the underlying array using a hash table
+        i = self.value2index[value]
+
         assert key >= self.A[i]["key"], f"requested to decrease key {self.A[i]['key']} to {key}"
         self.A[i]["key"] = key # increase the key
         while i > 0 and self.A[i]["key"] > self.A[parent(i)]["key"]:
@@ -131,6 +142,8 @@ class MaxPriorityQueue:
         initial_key = float("-inf")
         self.A[self.heap_size] = {"key": initial_key, "value": value}
         self.heap_size += 1
+        assert value not in self.value2index, f"value {value} already in priority queue"
+        self.value2index[value] = self.heap_size - 1
         self.increase_key(key, value)
 
     def __repr__(self):
@@ -142,9 +155,7 @@ def main():
     # pylint: disable=line-too-long
     # flake8: noqa: E501
 
-    inital_queue = [
-        # {"key": 0, "value": "red"},
-    ]
+    inital_queue = []
     max_priority_queue = MaxPriorityQueue(A=inital_queue)
     print("Initial priority queue:")
     print(max_priority_queue)
