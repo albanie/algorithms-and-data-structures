@@ -13,12 +13,13 @@ The code was implemented with assistance from GitHub Copilot.
 
 class Node:
 
-    def __init__(self, key, parent=None, left=None, right=None, color=None):
+    def __init__(self, key, parent=None, left=None, right=None, color=None, value=None):
         self.key = key
         self.parent = parent
         self.left = left
         self.right = right
         self.color = color
+        self.value = value
 
     def __repr__(self):
         summary = f"Node({self.key}, color={self.color})"
@@ -28,6 +29,8 @@ class Node:
             summary += f" left={self.left.key}"
         if self.right:
             summary += f" right={self.right.key}"
+        if self.value is not None:
+            summary += f" value={self.value}"
         return summary
 
 
@@ -48,7 +51,7 @@ class RedBlackTree:
     def __repr__(self):
         return f"RedBlackTree({self.root})"
 
-    def search(self, key: int) -> Node:
+    def search(self, key) -> Node:
         """Search for a node with a given key in the subtree of the given node.
 
         Args:
@@ -313,6 +316,47 @@ class RedBlackTree:
                     self.rotate_right(node.parent)
                     node = self.root
         node.color = "black"
+
+    def __contains__(self, key) -> bool:
+        """Check if the tree contains a node with the given key.
+
+        Args:
+            key: the key to search for.
+
+        Returns:
+            True if the tree contains a node with the given key, False otherwise.
+        """
+        return self.search(key) is not None
+
+    def __delitem__(self, key):
+        """Delete the node with the given key from the tree.
+
+        Args:
+            key: the key of the node to delete.
+        """
+        node = self.search(key)
+        self.delete(node)
+
+    def __setitem__(self, key, value):
+        """Insert a new node into the tree, providing a dictionary-like interface
+
+        Args:
+            key: the key of the new node.
+            value: the value of the new node.
+        """
+        self.insert(Node(key, value=value))
+
+    def __getitem__(self, key):
+        """Search for the value associated with the given key.
+
+        Args:
+            key: the key of the new node.
+
+        Returns:
+            The value associated with the given key.
+        """
+        return self.search(key).value
+
 
 
 def main():
