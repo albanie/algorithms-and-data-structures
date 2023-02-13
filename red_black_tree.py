@@ -40,6 +40,10 @@ class Nil(Node):
     def __init__(self):
         super().__init__(key="Nil", parent=None, left=None, right=None, color="black")
 
+    @staticmethod
+    def __bool__():
+        return False
+
 
 class RedBlackTree:
 
@@ -58,7 +62,7 @@ class RedBlackTree:
             key: the key to search for
         """
         node = self.root
-        while node and node.key != key:
+        while node is not self.nil and node.key != key:
             if key < node.key:
                 node = node.left
             else:
@@ -97,7 +101,7 @@ class RedBlackTree:
         Args:
             node: Node - the root of the tree to traverse.
         """
-        if node != self.nil:
+        if node is not self.nil:
             self.inorder(node.left)
             print(node.key, end=" ")
             self.inorder(node.right)
@@ -108,7 +112,7 @@ class RedBlackTree:
         Args:
             node: Node - the root of the tree to traverse.
         """
-        if node != self.nil:
+        if node is not self.nil:
             print(node.key, end=" ")
             self.preorder(node.left)
             self.preorder(node.right)
@@ -119,7 +123,7 @@ class RedBlackTree:
         Args:
             node: Node - the root of the tree to traverse.
         """
-        if node is not None:
+        if node is not self.nil:
             self.postorder(node.left)
             self.postorder(node.right)
             print(node.key, end=" ")
@@ -326,7 +330,7 @@ class RedBlackTree:
         Returns:
             True if the tree contains a node with the given key, False otherwise.
         """
-        return self.search(key) is not None
+        return self.search(key) is not self.nil
 
     def __delitem__(self, key):
         """Delete the node with the given key from the tree.
@@ -335,16 +339,21 @@ class RedBlackTree:
             key: the key of the node to delete.
         """
         node = self.search(key)
+        if node is self.nil:
+            raise KeyError(str(key))
         self.delete(node)
 
     def __setitem__(self, key, value):
-        """Insert a new node into the tree, providing a dictionary-like interface
+        """Insert or update node value, providing a dictionary-like interface.
 
         Args:
             key: the key of the new node.
             value: the value of the new node.
         """
-        self.insert(Node(key, value=value))
+        if (node := self.search(key)) is not self.nil:
+            node.value = value
+        else:
+            self.insert(Node(key, value=value))
 
     def __getitem__(self, key):
         """Search for the value associated with the given key.
@@ -355,7 +364,10 @@ class RedBlackTree:
         Returns:
             The value associated with the given key.
         """
-        return self.search(key).value
+        node = self.search(key)
+        if node is self.nil:
+            raise KeyError(str(key))
+        return node.value
 
 
 
