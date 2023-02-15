@@ -146,6 +146,11 @@ If you'd like to run the parallel code without the GIL, you need Sam Gross' [nog
 pyenv install nogil-3.9.10
 # activate the nogil
 pyenv local nogil-3.9.10
+
+# run your code here
+
+# (for afterwards) deactivate the nogil (if you want to go back to the system python)
+pyenv local system
 ```
 
 ## Additional comments

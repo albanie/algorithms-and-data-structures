@@ -5,8 +5,6 @@ The code draws inspiration from several descriptions/code snippets for Red-Black
 - https://blog.boot.dev/python/red-black-tree-python/
 - Chapter 13 of T. H. Cormen, et al., "Introduction to algorithms", MIT press, (2022)
 
-We follow the Cormen et al. convention of allowing duplicate keys.
-
 The code was implemented with assistance from GitHub Copilot.
 """
 
@@ -350,7 +348,8 @@ class RedBlackTree:
             key: the key of the new node.
             value: the value of the new node.
         """
-        if (node := self.search(key)) is not self.nil:
+        node = self.search(key)
+        if node is not self.nil:
             node.value = value
         else:
             self.insert(Node(key, value=value))
