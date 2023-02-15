@@ -103,7 +103,7 @@ class MaxPriorityQueue:
         last_item = self.A[self.heap_size - 1]
         self.A[0] = last_item
 
-        # update the value2index mapping (note that the value in the RBT is the index in 
+        # update the value2index mapping (note that the value in the RBT is the index in
         # the underlying array for the heap)
         self.value2index[last_item["value"]] = 0
         del self.value2index[max_item["value"]]
@@ -119,12 +119,13 @@ class MaxPriorityQueue:
             key: the new key of the value
             value: the value to increase the key of
         """
-        # locate the position of `value` in the underlying array using a hash table
+        # locate the position of `value` in the underlying array
         i = self.value2index[value]
 
         assert key >= self.A[i]["key"], f"requested to decrease key {self.A[i]['key']} to {key}"
         self.A[i]["key"] = key # increase the key
         while i > 0 and self.A[i]["key"] > self.A[parent(i)]["key"]:
+            self.value2index[self.A[i]["value"]], self.value2index[self.A[parent(i)]["value"]] = parent(i), i
             self.A[i], self.A[parent(i)] = self.A[parent(i)], self.A[i]
             i = parent(i)
 
@@ -167,6 +168,10 @@ def main():
     print("\nPriority queue after insertions:")
     print(max_priority_queue)
 
+    max_priority_queue.increase_key(key=5, value="green")
+    print("\nPriority queue after key increase:")
+    print(max_priority_queue)
+
     print(f"\nPopped max:", max_priority_queue.pop_max())
     print(f"Popped max:", max_priority_queue.pop_max())
     print("\nPriority queue after pop max calls:")
@@ -182,18 +187,23 @@ def main():
     Priority queue after insertions:
     MaxPriorityQueue containing:
     {'key': 4, 'value': 'blue'}
-    {'key': 3, 'value': 'green'}
     {'key': 2, 'value': 'yellow'}
-    {'key': 0, 'value': 'red'}
+    {'key': 3, 'value': 'green'}
     {'key': -1, 'value': 'mauve'}
 
-    Popped max: blue
+    Priority queue after key increase:
+    MaxPriorityQueue containing:
+    {'key': 5, 'value': 'green'}
+    {'key': 2, 'value': 'yellow'}
+    {'key': 4, 'value': 'blue'}
+    {'key': -1, 'value': 'mauve'}
+
     Popped max: green
+    Popped max: blue
 
     Priority queue after pop max calls:
     MaxPriorityQueue containing:
     {'key': 2, 'value': 'yellow'}
-    {'key': 0, 'value': 'red'}
     {'key': -1, 'value': 'mauve'}
     """
 
