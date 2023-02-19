@@ -68,7 +68,7 @@ def fib_parallel(n, try_parallel=True):
         with ThreadPoolExecutor() as executor:
             x_future = executor.submit(fib_parallel, n - 1)
             y = fib_parallel(n - 2)
-        x = x_future.result()  # note that this blocks until x is ready
+            x = x_future.result()  # note that this blocks until x is ready
     else:
         # Now we've used all our threads, so we just do the computation serially for
         # the remainder of the recursion.

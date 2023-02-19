@@ -75,9 +75,12 @@ The bare necessities. Each data structure is accompanied by a video lecture (and
 - :hammer: [bucket_sort.py](bucket_sort.py)
 - :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2023-01-brief-guide-to-bucket-sort)
 
-### Parallel algorithms
+### Task-Parallel Computing
 
+- :movie_camera: [video lecture](https://youtu.be/tUQV_9AzhkE)
+- :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2023-02-brief-guide-to-task-parallel-computing.pdf)
 - :hammer: [parallel_fibonacci.py](parallel_fibonacci.py)
+- :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2023-02-brief-guide-to-task-parallel-computing)
 
 ### Foundation models for code
 
