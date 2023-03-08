@@ -82,6 +82,12 @@ The bare necessities. Each data structure is accompanied by a video lecture (and
 - :hammer: [parallel_fibonacci.py](parallel_fibonacci.py)
 - :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2023-02-brief-guide-to-task-parallel-computing)
 
+### NP-complete Problems
+
+- :movie_camera: [video lecture](https://youtu.be/TnGTjht3TF0)
+- :bar_chart: [slides (pdf)](https://samuelalbanie.com/files/digest-slides/2023-03-brief-guide-to-np-complete-problems.pdf)
+- :fountain_pen: [detailed references](http://samuelalbanie.com/digests/2023-03-brief-guide-to-np-complete-problems)
+
 ### Foundation models for code
 
 Until recently, code for implementing data structures was largely written by hand. As of 2021, there have been exploratory efforts to employ neural networks for the task of generating code from natural language descriptions (this approach underpins the GitHub Copilot tool, for example). If you'd like to learn more, the video below describes Codex, a popular foundation model for code generation.
