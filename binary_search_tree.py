@@ -6,201 +6,182 @@ The code draws inspiration from several descriptions of Binary Search Trees:
 - https://github.com/donsheehy/datastructures
 
 We follow the Cormen et al. convention of allowing duplicate keys.
-
-If you would like a fully object-oriented Binary Search Tree implementation, I recommend:
-- https://github.com/donsheehy/datastructures
 """
-
-
-class BinarySearchTree:
-
-    def __init__(self, root=None):
-        self.root = root
+from typing import Optional
 
 
 class Node:
 
     def __init__(self, key, parent=None, left=None, right=None):
         self.key = key
-        self.parent = parent
         self.left = left
         self.right = right
-
-    def __str__(self):
-        summary = f"Node({self.key})"
-        if self.parent:
-            summary += f" parent={self.parent.key}"
-        if self.left:
-            summary += f" left={self.left.key}"
-        if self.right:
-            summary += f" right={self.right.key}"
-        return summary
+        self.parent = parent
 
 
-def insert(bst: BinarySearchTree, new_node: Node):
-    """Insert a new node into the tree.
+class BinarySearchTree:
+    
+    def __init__(self, root: Optional[Node] = None):
+        self.root = root
 
-    Args:
-        bst: the tree to insert into.
-        new_node: the node to insert.
-    """
-    node = bst.root
-    parent = None
-    while node:
-        parent = node
-        node = node.left if new_node.key < node.key else node.right
-    new_node.parent = parent
-    if not parent:  # handle the case when the tree is empty
-        bst.root = new_node
-    elif new_node.key < parent.key:
-        parent.left = new_node
-    else:
-        parent.right = new_node
+    def maximum(self, u: Node):
+        """Return the node with the largest key in the subtree rooted at the given node
 
+        Args:
+            u: the node to search from
 
-def search(key: int, node: Node):
-    """Search for a node with a given key in the subtree of the given node.
+        Returns:
+            the node with the largest key
+        """
+        while u.right:
+            u = u.right
+        return u
 
-    Args:
-        key: the key to search for.
-        node: the node whose subtree we wish to search
-    """
-    while node and node.key != key:
-        if key < node.key:
-            node = node.left
+    def minimum(self, u: Node):
+        """Return the node with the smallest key in the subtree rooted at the given node
+
+        Args:
+            u: the node to search from
+
+        Returns:
+            the node with the smallest key
+        """
+        while u.left:
+            u = u.left
+        return u
+
+    def insert(self, v: Node):
+        """Insert the given node into the tree
+
+        Args:
+            v: the node to insert
+        """
+        u = self.root
+        par = None
+        while u:
+            par = u
+            u = u.left if v.key < u.key else u.right
+        v.parent = par
+        if not par:  # handle case when the BST is empty
+            self.root = v
+        elif v.key < par.key:
+            par.left = v
         else:
-            node = node.right
-    return node
+            par.right = v
 
+    def inorder(self, u: Node, visited: Optional[list] = None):
+        """Complete an inorder traversal of the subtree rooted at u, appending
+        each visited key to a list.
 
-def delete(bst: BinarySearchTree, node: Node):
-    """Delete a node from the tree.
+        Args:
+            u: the root of the subtree at which the traversal will be performed
+            visited: the list of visited keys.
+        """
+        if visited is None:
+            visited = []
+        if u.left:
+            self.inorder(u.left, visited)
+        visited.append(u.key)
+        if u.right:
+            self.inorder(u.right, visited)
+        return visited
 
-    Args:
-        bst: the tree to delete from.
-        node: the node to delete.
-    """
-    if not node.right:  # node to be deleted has no right child
-        shift_nodes(bst, node, node.right)  # node to be deleted has no left child
-    elif not node.left:
-        shift_nodes(bst, node, node.right)
-    else:  # node to be deleted has both a left and right child
-        successor = minimum(node.right)
-        if successor != node.right:
-            shift_nodes(bst, successor, successor.right)
-            successor.right = node.right
-            successor.right.parent = successor
-        shift_nodes(bst, node, successor)
-        successor.left = node.left
-        successor.left.parent = successor
+    def preorder(self, u: Node, visited: Optional[list] = None):
+        """Complete a preorder traversal of the subtree rooted at u, appending
+        each visited key to a list.
 
+        Args:
+            u: the root of the subtree at which the traversal will be performed
+            visited: the list of visited keys.
+        """
+        if visited is None:
+            visited = []
+        visited.append(u.key)
+        if u.left:
+            self.preorder(u.left, visited)
+        if u.right:
+            self.preorder(u.right, visited)
+        return visited
 
-def shift_nodes(bst: BinarySearchTree, old_node: Node, new_node: Node):
-    """Shift the nodes from the subtree at new_node to the position of old_node.
+    def postorder(self, u: Node, visited: Optional[list] = None):
+        """Complete a postorder traversal of the subtree rooted at u, appending
+        each visited key to a list.
 
-    Args:
-        bst: the tree to shift the nodes in.
-        old_node: the node to be replaced.
-        new_node: the node (and subtree) that is shifted.
-    """
-    if not old_node.parent:
-        bst.root = new_node
-    elif old_node == old_node.parent.left:
-        old_node.parent.left = new_node
-    else:
-        old_node.parent.right = new_node
-    if new_node:
-        new_node.parent = old_node.parent
+        Args:
+            u: the root of the subtree at which the traversal will be performed
+            visited: the list of visited keys.
+        """
+        if visited is None:
+            visited = []
+        if u.left:
+            self.postorder(u.left, visited)
+        if u.right:
+            self.postorder(u.right, visited)
+        visited.append(u.key)
+        return visited
 
-
-def minimum(node: Node):
-    """Find the minimum node in the subtree rooted at node.
-
-    Args:
-        node: Node - the root of the tree to search.
-    """
-    while node.left:
-        node = node.left
-    return node
-
-
-def maximum(node: Node):
-    """Find the maximum node in the subtree rooted at node.
-
-    Args:
-        node: Node - the root of the tree to search.
-    """
-    while node.right:
-        node = node.right
-    return node
-
-
-def inorder(node):
-    """Perform an inorder traversal of the tree rooted at node.
-
-    Args:
-        node: Node - the root of the tree to traverse.
-    """
-    if node is not None:
-        inorder(node.left)
-        print(node.key, end=" ")
-        inorder(node.right)
-
-
-def preorder(node):
-    """Perform a preorder traversal of the tree rooted at node.
-
-    Args:
-        node: Node - the root of the tree to traverse.
-    """
-    if node is not None:
-        print(node.key, end=" ")
-        preorder(node.left)
-        preorder(node.right)
-
-
-def postorder(node):
-    """Perform a postorder traversal of the tree rooted at node.
-
-    Args:
-        node: Node - the root of the tree to traverse.
-    """
-    if node is not None:
-        postorder(node.left)
-        postorder(node.right)
-        print(node.key, end=" ")
+    def shift_nodes(self, old, src):
+        if not old.parent:
+            self.root = src
+        elif old == old.parent.left:
+            old.parent.left = src
+        else:
+            old.parent.right = src
+        if src:
+            src.parent = old.parent
+            
+    def successor(self, u):
+        if u.right:
+            succ = self.minimum(u.right)
+        else:
+            par = u.parent
+            while par.left != u:
+                u = par
+                par = u.parent
+            succ = par
+        return succ
+    
+    def delete(self, u):
+        if not u.left:
+            self.shift_nodes(u, u.right)
+        elif not u.right:
+            self.shift_nodes(u, u.left)
+        else:
+            succ = self.minimum(u.right)
+            if succ != u.right:
+                self.shift_nodes(succ, succ.right)
+                succ.right = u.right
+                succ.right.parent = succ
+            self.shift_nodes(u, succ)
+            succ.left = u.left
+            succ.left.parent = succ
 
 
 def main():
     bst = BinarySearchTree()
     insert_keys = [5, 3, 2, 7, 1, 8, 9, 12]
-    node_list = [Node(key) for key in insert_keys]
-    for node in node_list:
-        insert(bst, node)
+    nodes = [Node(key) for key in insert_keys]
+    for u in nodes:
+        bst.insert(u)
 
     # print out traversals
     print(f"Inorder traversal")
-    inorder(bst.root)
-    print("")
+    print(bst.inorder(bst.root))
     print(f"Preorder traversal")
-    preorder(bst.root)
-    print("")
+    print(bst.preorder(bst.root))
     print(f"Postorder traversal")
-    preorder(bst.root)
-    print("")
+    print(bst.postorder(bst.root))
 
-    node_to_delete = node_list[3]
-    print(f"Deleting node {node_to_delete}")
-    delete(bst, node_to_delete)
-
-    # print out traversal
+    node_to_delete = nodes[3]
+    print(f"Deleting node with key {node_to_delete.key}")
+    bst.delete(node_to_delete)
+    # print out updated traversal
     print(f"Inorder traversal after deletion")
-    inorder(bst.root)
-    print("")
+    print(bst.inorder(bst.root))
 
     # print out minimum and maximum
-    print(f"Minimum key: {minimum(bst.root).key}")
-    print(f"Maximum key: {maximum(bst.root).key}")
+    print(f"Minimum key: {bst.minimum(bst.root).key}")
+    print(f"Maximum key: {bst.maximum(bst.root).key}")
 
     """
     Print out:
@@ -211,7 +192,7 @@ def main():
     5 3 2 1 7 8 9 12
     Postorder traversal
     5 3 2 1 7 8 9 12
-    Deleting node Node(7) parent=5 right=8
+    Deleting node with key 7
     Inorder traversal after deletion
     1 2 3 5 8 9 12
     Minimum key: 1
