@@ -14,8 +14,7 @@ class Node:
 
     def __init__(self, key, parent=None, left=None, right=None):
         self.key = key
-        self.left = left
-        self.right = right
+        self.left, self.right = left, right
         self.parent = parent
 
 
@@ -103,13 +102,16 @@ class BinarySearchTree:
             self.preorder(u.right, visited)
         return visited
 
-    def postorder(self, u: Node, visited: Optional[list] = None):
+    def postorder(self, u: Node, visited: Optional[list] = None) -> list:
         """Complete a postorder traversal of the subtree rooted at u, appending
         each visited key to a list.
 
         Args:
             u: the root of the subtree at which the traversal will be performed
-            visited: the list of visited keys.
+            visited: the list of keys visited so far in the traversal
+
+        Return:
+            The list of visited keys.
         """
         if visited is None:
             visited = []
@@ -120,17 +122,15 @@ class BinarySearchTree:
         visited.append(u.key)
         return visited
 
-    def shift_nodes(self, old, src):
-        if not old.parent:
-            self.root = src
-        elif old == old.parent.left:
-            old.parent.left = src
-        else:
-            old.parent.right = src
-        if src:
-            src.parent = old.parent
+    def successor(self, u: Node):
+        """Return the successor of the given node in the tree.
+
+        Args:
+            u: the node whose successor we wish to find.
             
-    def successor(self, u):
+        Returns:
+            The successor of u.
+        """
         if u.right:
             succ = self.minimum(u.right)
         else:
@@ -140,8 +140,24 @@ class BinarySearchTree:
                 par = u.parent
             succ = par
         return succ
+
+    def shift_nodes(self, old: Node, src: Node):
+        """Shift nodes in a subtree from one location on the tree to another.
+
+        Args:
+            old: the location where the new subtree will be shifted to.
+            src: the location of the subtree to be shifted.
+        """
+        if not old.parent:
+            self.root = src
+        elif old == old.parent.left:
+            old.parent.left = src
+        else:
+            old.parent.right = src
+        if src:
+            src.parent = old.parent
     
-    def delete(self, u):
+    def delete(self, u: Node):
         if not u.left:
             self.shift_nodes(u, u.right)
         elif not u.right:
